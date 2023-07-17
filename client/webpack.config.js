@@ -14,7 +14,7 @@ module.exports = () => {
       install: './src/js/install.js',
       database: './src/js/database.js',
       editor: './src/js/editor.js',
-      header: './src/js/header.js'
+      header: './src/js/header.js',
     },
     output: {
       filename: '[name].bundle.js',
@@ -25,12 +25,13 @@ module.exports = () => {
         template: './index.html',
         title: 'JATE'
       }),
-      new MiniCssExtractPlugin(),
+      
       new InjectManifest({
         swSrc: './src-sw.js',
         swDest: 'src-sw.js',
       }),
       new WebpackPwaManifest({
+        fingerprints: false,
         inject: true,
         name: 'Just Another Text Editor (JATE)',
         short_name: 'JATE',
@@ -41,7 +42,7 @@ module.exports = () => {
         publicPath: './',
         icons: [
           {
-            src: path.resolve('assets/images/logo.png'),
+            src: path.resolve('src/images/logo.png'),
             sizes: [96, 128, 192, 256, 384, 512],
             destination: path.join('assets', 'icons'),
           },
