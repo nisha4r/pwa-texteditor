@@ -25,12 +25,23 @@ warmStrategyCache({
 });
 
 registerRoute(({ request }) => request.mode === 'navigate', pageCache);
-
+const matchCallback = ({ request }) => {
+  console.log(request);
+  return (
+    // CSS
+    request.destination === 'style' ||
+    // JavaScript
+    request.destination === 'script' ||
+    //worker
+    request.destination === 'worker'
+  );
+};
+const cacheName = "asset-cache"
 // TODO: Implement asset caching
 registerRoute(
-  ({ request }) => request.destination === 'image',
-  new CacheFirst({
-    cacheName: 'my-image-cache',
+  matchCallback,
+  new StaleWhileRevalidate({
+    cacheName,
     plugins: [
       new CacheableResponsePlugin({
         statuses: [0, 200],
