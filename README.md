@@ -37,6 +37,24 @@ THEN I should have my static assets pre cached upon loading along with subsequen
 WHEN I deploy to Heroku
 THEN I should have proper build scripts for a webpack application
 ```
+
+## Heroku Deployment
+Heroku : https://nisha-pwa-texteditor-ba2dc1333230.herokuapp.com/
+
+## Install Steps
+1. npm run install
+2. npm run build
+3. npm run start:dev
+
 ## Screenshots
 
-### Install & Start Application
+### Demo
+![Demo](./asset/images/JATE_Demo.gif)
+### Manifest
+![Manifest](./asset/images/manifest.png)
+
+### Service-Worker
+![Service Worker](./asset/images/service-worker.png)
+
+### IndexDB
+![IndexDB](./asset/images/indexdb.png)
